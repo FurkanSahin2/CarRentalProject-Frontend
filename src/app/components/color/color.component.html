@@ -1,12 +1,22 @@
-<ul class="list-group">
-  <li class="list-group-item">A simple default list group item</li>
+<div class="alert alert-warning" role="alert" style="text-align: center">
+  <strong>RENKLER</strong>
+</div>
 
-  <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
-  <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
-  <li class="list-group-item list-group-item-success">A simple success list group item</li>
-  <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
-  <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
-  <li class="list-group-item list-group-item-info">A simple info list group item</li>
-  <li class="list-group-item list-group-item-light">A simple light list group item</li>
-  <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
-</ul>
+<div *ngIf = "dataLoaded == false" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<table *ngIf = "dataLoaded == true" class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th style="text-align: center;">Id</th>
+      <th style="text-align: center;">Renk</th>
+    </tr>
+  </thead>
+  <tr *ngFor ="let color of colors">
+    <td>{{color.colorId}}</td>
+    <td>{{color.colorName}}</td>
+  </tr>
+</table>
+
+
